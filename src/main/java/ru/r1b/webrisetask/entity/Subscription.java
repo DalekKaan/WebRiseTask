@@ -3,12 +3,11 @@ package ru.r1b.webrisetask.entity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 
-import java.util.Set;
 import java.util.UUID;
 
 @Entity
 @Table(name = "subscriptions")
-public class WebService implements ResourceEntity {
+public class Subscription implements ResourceEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

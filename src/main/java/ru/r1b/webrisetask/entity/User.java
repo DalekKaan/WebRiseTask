@@ -5,12 +5,12 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Past;
-import org.hibernate.annotations.ColumnTransformer;
 import org.springframework.format.annotation.DateTimeFormat;
-import ru.r1b.webrisetask.entity.converter.EntityManyToManyConverter;
 
 import java.time.LocalDate;
-import java.util.*;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.UUID;
 
 @Entity
 @Table(name = "users")
@@ -33,7 +33,7 @@ public class User implements ResourceEntity {
     private LocalDate dayOfBorn;
 
     @ManyToMany
-    private Set<WebService> subscriptions = new HashSet<>();
+    private Set<Subscription> subscriptions = new HashSet<>();
 
 
     public UUID getId() {
@@ -52,7 +52,7 @@ public class User implements ResourceEntity {
         return dayOfBorn;
     }
 
-    public Set<WebService> getSubscriptions() {
+    public Set<Subscription> getSubscriptions() {
         return subscriptions;
     }
 }

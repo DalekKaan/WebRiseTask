@@ -2,12 +2,12 @@ package ru.r1b.webrisetask.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import ru.r1b.webrisetask.entity.WebService;
+import ru.r1b.webrisetask.entity.Subscription;
 
 import java.util.List;
 import java.util.UUID;
 
-public interface WebServiceRepository extends JpaRepository<WebService, UUID> {
+public interface WebServiceRepository extends JpaRepository<Subscription, UUID> {
 
     // todo: use limit param
     @Query(value = """
@@ -19,5 +19,5 @@ public interface WebServiceRepository extends JpaRepository<WebService, UUID> {
                 ) m
             ORDER BY cnt DESC
             LIMIT 3""", nativeQuery = true)
-    List<WebService> findTop();
+    List<Subscription> findTop();
 }
