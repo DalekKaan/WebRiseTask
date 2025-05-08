@@ -2,6 +2,7 @@ package ru.r1b.webrisetask.http.controller.resource;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import jakarta.transaction.Transactional;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -21,8 +22,6 @@ import java.util.UUID;
 public abstract class CommonResourceController<E extends ResourceEntity> implements ResourceController<E> {
     // для ревью:
     // контроллер сгенерирован при помощи плагина для Intellij Idea "Amplicode" просто, чтобы сэкономить время
-
-    // todo: use @Transactional
 
     protected final JpaRepository<E, UUID> repository;
 
@@ -58,6 +57,7 @@ public abstract class CommonResourceController<E extends ResourceEntity> impleme
     }
 
     @Override
+    @Transactional
     public E patch(@PathVariable UUID id, @RequestBody JsonNode patchNode) throws IOException {
         E entity = repository.findById(id).orElseThrow(() ->
                 new ResponseStatusException(HttpStatus.NOT_FOUND, "Entity with id `%s` not found".formatted(id)));
@@ -68,6 +68,7 @@ public abstract class CommonResourceController<E extends ResourceEntity> impleme
     }
 
     @Override
+    @Transactional
     public List<UUID> patchMany(@RequestParam List<UUID> ids, @RequestBody JsonNode patchNode) throws IOException {
         Collection<E> entities = repository.findAllById(ids);
 
@@ -82,6 +83,7 @@ public abstract class CommonResourceController<E extends ResourceEntity> impleme
     }
 
     @Override
+    @Transactional
     public E delete(@PathVariable UUID id) {
         E entity = repository.findById(id).orElse(null);
         if (entity != null) {
@@ -91,6 +93,7 @@ public abstract class CommonResourceController<E extends ResourceEntity> impleme
     }
 
     @Override
+    @Transactional
     public void deleteMany(@RequestParam List<UUID> ids) {
         repository.deleteAllById(ids);
     }
