@@ -1,4 +1,4 @@
-package repository;
+package ru.r1b.webrisetask.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import ru.r1b.webrisetask.entity.User;
