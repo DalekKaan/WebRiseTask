@@ -9,7 +9,6 @@ import java.util.UUID;
 
 public interface WebServiceRepository extends JpaRepository<Subscription, UUID> {
 
-    // todo: use limit param
     @Query(value = """
             SELECT id, name FROM (
                         SELECT s.id, s.name, count(us.*) AS cnt
@@ -18,6 +17,6 @@ public interface WebServiceRepository extends JpaRepository<Subscription, UUID> 
                         GROUP BY s.id, s.name
                 ) m
             ORDER BY cnt DESC
-            LIMIT 3""", nativeQuery = true)
-    List<Subscription> findTop();
+            LIMIT ?1""", nativeQuery = true)
+    List<Subscription> findTop(int limit);
 }

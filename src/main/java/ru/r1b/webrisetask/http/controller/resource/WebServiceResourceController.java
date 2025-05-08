@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import ru.r1b.webrisetask.entity.Subscription;
 import ru.r1b.webrisetask.repository.WebServiceRepository;
@@ -19,7 +20,7 @@ public class WebServiceResourceController extends CommonResourceController<Subsc
 
 
     @GetMapping("/top")
-    public List<Subscription> getTop() {
-        return ((WebServiceRepository) repository).findTop();
+    public List<Subscription> getTop(@RequestParam(required = false, defaultValue = "3") int limit) {
+        return ((WebServiceRepository) repository).findTop(limit);
     }
 }
