@@ -9,13 +9,15 @@ import java.util.UUID;
 
 public interface WebServiceRepository extends JpaRepository<WebService, UUID> {
 
+    // todo: use limit param
     @Query(value = """
-            SELECT id, name FROM (SELECT s.id, s.name, count(s.id) as cnt
-                           FROM users u
-                                    CROSS JOIN LATERAL JSONB_ARRAY_ELEMENTS(u.subscriptions) AS e(usr)
-                                    INNER JOIN subscriptions s ON (e.usr ->> 0)::text::uuid = s.id
-                           GROUP BY s.id, s.name) m
+            SELECT id, name FROM (
+                        SELECT s.id, s.name, count(us.*) AS cnt
+                        FROM subscriptions s
+                                 LEFT JOIN users_subscriptions us ON s.id = us.subscriptions_id
+                        GROUP BY s.id, s.name
+                ) m
             ORDER BY cnt DESC
             LIMIT 3""", nativeQuery = true)
-    public List<WebService> findTop();
+    List<WebService> findTop();
 }
