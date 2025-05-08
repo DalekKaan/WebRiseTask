@@ -1,0 +1,248 @@
+{
+	"info": {
+		"_postman_id": "160dcfac-ce45-4403-8e6a-583130ab97c0",
+		"name": "WebRise",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2822958"
+	},
+	"item": [
+		{
+			"name": "Resource",
+			"item": [
+				{
+					"name": "User",
+					"item": [
+						{
+							"name": "Subscription",
+							"item": [
+								{
+									"name": "Add",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n            \"id\": \"325030ed-8163-4e6f-87a9-a6ca8ac1df92\",\r\n            \"name\": \"VK\"\r\n        }",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/users/fb262d1a-5d77-4d45-a271-ad78375e6cef/subscriptions",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"users",
+												"fb262d1a-5d77-4d45-a271-ad78375e6cef",
+												"subscriptions"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/users/fb262d1a-5d77-4d45-a271-ad78375e6cef/subscriptions",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"users",
+												"fb262d1a-5d77-4d45-a271-ad78375e6cef",
+												"subscriptions"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/users/fb262d1a-5d77-4d45-a271-ad78375e6cef/subscriptions/325030ed-8163-4e6f-87a9-a6ca8ac1df92",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"users",
+												"fb262d1a-5d77-4d45-a271-ad78375e6cef",
+												"subscriptions",
+												"325030ed-8163-4e6f-87a9-a6ca8ac1df92"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Create",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"John Smith Jr.\",\r\n    \"dayOfBorn\": \"1994-08-08\",\r\n    \"email\": \"j.smitth.gj@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/users",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get one",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/users/fb262d1a-5d77-4d45-a271-ad78375e6cef",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"users",
+										"fb262d1a-5d77-4d45-a271-ad78375e6cef"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": \"fb262d1a-5d77-4d45-a271-ad78375e6cef\",\r\n    \"name\": \"Alex Gustov\",\r\n    \"email\": \"a.gustov@yandex.ru\",\r\n    \"dayOfBorn\": \"1990-05-01\",\r\n    \"subscriptions\": [\r\n        {\r\n            \"id\": \"1d9d89bd-621e-4837-81f4-7ff975cbf865\",\r\n            \"name\": \"Netflix\"\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/users/fb262d1a-5d77-4d45-a271-ad78375e6cef",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"users",
+										"fb262d1a-5d77-4d45-a271-ad78375e6cef"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/users/fb262d1a-5d77-4d45-a271-ad78375e6cef",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"users",
+										"fb262d1a-5d77-4d45-a271-ad78375e6cef"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Subscription",
+					"item": [
+						{
+							"name": "Get top",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/subscriptions/top",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"subscriptions",
+										"top"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "3",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}

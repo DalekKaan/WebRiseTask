@@ -16,7 +16,7 @@ docker composer up -d
 
 Access:
 - Database connection by default: `postgres:changeme@localhost:5432/postgres`
-- PgAdmin: http://localhost:5050
+- PgAdmin: http://localhost:5050 (use `postgres_container` host to access main db)
 - Main application: http://localhost:8080
 
 For HTTP request examples see [Postman collection](WebRise.postman_collection.json).
