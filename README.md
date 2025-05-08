@@ -18,5 +18,6 @@ Access:
 - Database connection by default: `postgres:changeme@localhost:5432/postgres`
 - PgAdmin: http://localhost:5050 (use `postgres_container` host to access main db)
 - Main application: http://localhost:8080
+- Generated API docs: http://localhost:8080/swagger-ui
 
 For HTTP request examples see [Postman collection](WebRise.postman_collection.json).
