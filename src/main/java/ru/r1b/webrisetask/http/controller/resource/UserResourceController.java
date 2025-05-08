@@ -16,18 +16,18 @@ public class UserResourceController extends CommonResourceController<User>{
     }
 
     @GetMapping("/{id}/subscriptions")
-    public Set<Subscription> addSubscription(@PathVariable UUID id) {
+    public Set<Subscription> getSubscription(@PathVariable UUID id) {
         User user = this.getOne(id);
         return user.getSubscriptions();
     }
 
     @PostMapping("/{id}/subscriptions")
-    public Subscription addSubscription(@PathVariable UUID id, @RequestBody Subscription webService) {
+    public Subscription addSubscription(@PathVariable UUID id, @RequestBody Subscription subscription) {
         // todo: validation
         User user = this.getOne(id);
-        user.getSubscriptions().add(webService);
+        user.getSubscriptions().add(subscription);
         this.repository.save(user);
-        return webService;
+        return subscription;
     }
 
     @DeleteMapping("/{id}/subscriptions/{sub}")
