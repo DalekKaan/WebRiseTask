@@ -7,7 +7,7 @@ import java.util.UUID;
 
 @Entity
 @Table(name = "subscriptions")
-public class WebService {
+public class WebService implements ResourceEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -16,11 +16,12 @@ public class WebService {
     @NotBlank(message = "Service name is required")
     private String name;
 
-    public void setId(UUID id) {
-        this.id = id;
+    @Override
+    public UUID getId() {
+        return id;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getName() {
+        return name;
     }
 }
