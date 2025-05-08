@@ -1,27 +1,22 @@
-# Getting Started
+> **_Для ревью:_** Я добавил кое-где комментарии на русском, чтобы объяснить некоторые мои решения. Прошу не считать их частью самого тестового задания.
 
-### Reference Documentation
+# Calorie tracking service
+This is testing task for WebRise job interview.
 
-For further reference, please consider the following sections:
+*Note:* [Amplicode](https://amplicode.ru/) is used just for CRUD controller generation
 
-* [Official Apache Maven documentation](https://maven.apache.org/guides/index.html)
-* [Spring Boot Maven Plugin Reference Guide](https://docs.spring.io/spring-boot/3.4.5/maven-plugin)
-* [Create an OCI image](https://docs.spring.io/spring-boot/3.4.5/maven-plugin/build-image.html)
-* [Spring Web](https://docs.spring.io/spring-boot/3.4.5/reference/web/servlet.html)
+# Build & run
 
-### Guides
+Use `docker-compose` to build & run application containers
 
-The following guides illustrate how to use some features concretely:
+```bash
+mkdir -p docker/pgadmin docker/postgres # create extra folders to store database data
+docker composer up -d
+```
 
-* [Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/)
-* [Serving Web Content with Spring MVC](https://spring.io/guides/gs/serving-web-content/)
-* [Building REST services with Spring](https://spring.io/guides/tutorials/rest/)
+Access:
+- Database connection by default: `postgres:changeme@localhost:5432/postgres`
+- PgAdmin: http://localhost:5050
+- Main application: http://localhost:8080
 
-### Maven Parent overrides
-
-Due to Maven's design, elements are inherited from the parent POM to the project POM.
-While most of the inheritance is fine, it also inherits unwanted elements like `<license>` and `<developers>` from the
-parent.
-To prevent this, the project POM contains empty overrides for these elements.
-If you manually switch to a different parent and actually want the inheritance, you need to remove those overrides.
-
+For HTTP request examples see [Postman collection](WebRise.postman_collection.json).
