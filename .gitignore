@@ -33,3 +33,4 @@ build/
 
 docker/pgadmin/*
 docker/postgres/*
+logs/*

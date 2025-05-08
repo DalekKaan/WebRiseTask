@@ -37,6 +37,9 @@ services:
     build: .
     environment:
       DB_HOST: "${DB_HOST:-postgres_container}"
+      LOG_PATH: "/var/log/app"
+    volumes:
+      - ./logs:/var/log/app
     ports:
       - "8080:8080"
     networks:
