@@ -35,6 +35,7 @@ public class User implements ResourceEntity {
     @Convert(converter = EntityManyToManyConverter.class)
     @Column(columnDefinition = "jsonb")
     @ColumnTransformer(write = "?::jsonb")
+    // todo: use model
     private Set<UUID> subscriptions = new HashSet<>();
 
 

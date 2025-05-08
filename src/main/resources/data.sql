@@ -1,14 +1,29 @@
--- todo
+
 INSERT INTO subscriptions(id, name)
 VALUES ('fb262d1a-5d77-4d45-a271-ad78375e6cef', 'YouTube'),
     ('325030ed-8163-4e6f-87a9-a6ca8ac1df92', 'VK'),
+    ('1d9d89bd-621e-4837-81f4-7ff975cbf865', 'Netflix'),
     ('ebe4d182-da23-4238-96b5-6324132fec20', 'Yandex');
 
-INSERT INTO public.users (day_of_born, id, email, name, subscriptions)
+INSERT INTO users (day_of_born, id, email, name, subscriptions)
 VALUES (
-        '2025-05-01',
-        '3b04c377-7ff1-487f-989f-4cea69e54f11',
+        '1990-05-01',
+        'fb262d1a-5d77-4d45-a271-ad78375e6cef',
         'a.gustov@gmail.com',
         'Alex Gustov',
-        '["1dfb0519-e0be-4f40-8a73-8bd62237127b"]'
+        '["fb262d1a-5d77-4d45-a271-ad78375e6cef", "325030ed-8163-4e6f-87a9-a6ca8ac1df92"]'
+    ),
+    (
+          '1990-04-07',
+          '924a3173-e11b-4900-a875-6458ce4f309d',
+          'j.smith@gmail.com',
+          'John Smith',
+          '["fb262d1a-5d77-4d45-a271-ad78375e6cef", "ebe4d182-da23-4238-96b5-6324132fec20"]'
+    ),
+    (
+        '1991-02-11',
+        '0db037e2-b87b-4999-93bc-15390430be9c',
+        'i.karkarov@gmail.com',
+        'Igor Karkarov',
+        '["fb262d1a-5d77-4d45-a271-ad78375e6cef", "325030ed-8163-4e6f-87a9-a6ca8ac1df92", "ebe4d182-da23-4238-96b5-6324132fec20"]'
     );
