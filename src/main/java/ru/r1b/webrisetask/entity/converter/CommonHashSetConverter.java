@@ -9,33 +9,32 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
- * Converter to present Map as JSON database field
- * @param <K> json key type (must be serializable)
+ * Converter to present Set as JSON database field
  * @param <V> json value type
  */
 @Converter
-public abstract class CommonHashMapConverter<K, V> implements AttributeConverter<Map<K, V>, String> {
+public class CommonHashSetConverter<V> implements AttributeConverter<Set<V>, String> {
 
     private final ObjectMapper objectMapper;
     private final Logger logger;
-    private final TypeReference<HashMap<K, V>> typeReference = new TypeReference<>() {
+    private final TypeReference<HashSet<V>> typeReference = new TypeReference<>() {
     };
 
-    public CommonHashMapConverter(ObjectMapper objectMapper) {
+    public CommonHashSetConverter(ObjectMapper objectMapper) {
         this.objectMapper = objectMapper;
-        this.logger = LoggerFactory.getLogger(CommonHashMapConverter.class);
+        this.logger = LoggerFactory.getLogger(CommonHashSetConverter.class);
     }
 
     @Override
-    public String convertToDatabaseColumn(Map<K, V> map) {
+    public String convertToDatabaseColumn(Set<V> set) {
 
         String jsonString = null;
         try {
-            jsonString = objectMapper.writeValueAsString(map);
+            jsonString = objectMapper.writeValueAsString(set);
         } catch (final JsonProcessingException e) {
             logger.error("JSON writing error", e);
         }
@@ -44,9 +43,9 @@ public abstract class CommonHashMapConverter<K, V> implements AttributeConverter
     }
 
     @Override
-    public Map<K, V> convertToEntityAttribute(String jsonString) {
+    public Set<V> convertToEntityAttribute(String jsonString) {
 
-        Map<K, V> out = null;
+        Set<V> out = null;
         try {
             out = objectMapper.readValue(jsonString, typeReference);
         } catch (final IOException e) {

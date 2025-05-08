@@ -7,7 +7,7 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Past;
 import org.hibernate.annotations.ColumnTransformer;
 import org.springframework.format.annotation.DateTimeFormat;
-import ru.r1b.webrisetask.entity.converter.EntityCountConverter;
+import ru.r1b.webrisetask.entity.converter.EntityManyToManyConverter;
 
 import java.time.LocalDate;
 import java.util.*;
@@ -32,7 +32,7 @@ public class User implements ResourceEntity {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate dayOfBorn;
 
-    @Convert(converter = EntityCountConverter.class)
+    @Convert(converter = EntityManyToManyConverter.class)
     @Column(columnDefinition = "jsonb")
     @ColumnTransformer(write = "?::jsonb")
     private Set<UUID> subscriptions = new HashSet<>();

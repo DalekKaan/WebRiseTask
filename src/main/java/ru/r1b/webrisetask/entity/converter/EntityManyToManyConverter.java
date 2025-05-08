@@ -4,8 +4,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.util.UUID;
 
-public class EntityCountConverter extends CommonHashMapConverter<UUID, Integer> {
-    public EntityCountConverter(ObjectMapper objectMapper) {
+public class EntityManyToManyConverter extends CommonHashSetConverter<UUID> {
+    public EntityManyToManyConverter(ObjectMapper objectMapper) {
         super(objectMapper);
     }
 }
