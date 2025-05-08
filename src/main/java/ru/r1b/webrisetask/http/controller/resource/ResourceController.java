@@ -23,10 +23,10 @@ public interface ResourceController<E extends ResourceEntity> {
     @PostMapping
     E create(@RequestBody E person);
 
-    @PatchMapping("/{id}")
+    @PutMapping("/{id}")
     E patch(@PathVariable UUID id, @RequestBody JsonNode patchNode) throws IOException;
 
-    @PatchMapping
+    @PutMapping
     List<UUID> patchMany(@RequestParam List<UUID> ids, @RequestBody JsonNode patchNode) throws IOException;
 
     @DeleteMapping("/{id}")
