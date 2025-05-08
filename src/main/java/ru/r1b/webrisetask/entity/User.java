@@ -10,9 +10,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import ru.r1b.webrisetask.entity.converter.EntityCountConverter;
 
 import java.time.LocalDate;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 
 @Entity
 @Table(name = "users")
@@ -37,7 +35,7 @@ public class User implements ResourceEntity {
     @Convert(converter = EntityCountConverter.class)
     @Column(columnDefinition = "jsonb")
     @ColumnTransformer(write = "?::jsonb")
-    private Map<UUID, Integer> dishes = new HashMap<>();
+    private Set<UUID> subscriptions = new HashSet<>();
 
 
     public UUID getId() {
@@ -56,7 +54,7 @@ public class User implements ResourceEntity {
         return dayOfBorn;
     }
 
-    public Map<UUID, Integer> getDishes() {
-        return dishes;
+    public Set<UUID> getSubscriptions() {
+        return subscriptions;
     }
 }
