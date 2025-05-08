@@ -3,6 +3,7 @@ package ru.r1b.webrisetask.entity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 
+import java.util.Set;
 import java.util.UUID;
 
 @Entity

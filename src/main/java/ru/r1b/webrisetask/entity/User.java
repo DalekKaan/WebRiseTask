@@ -32,11 +32,8 @@ public class User implements ResourceEntity {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate dayOfBorn;
 
-    @Convert(converter = EntityManyToManyConverter.class)
-    @Column(columnDefinition = "jsonb")
-    @ColumnTransformer(write = "?::jsonb")
-    // todo: use model
-    private Set<UUID> subscriptions = new HashSet<>();
+    @ManyToMany
+    private Set<WebService> subscriptions = new HashSet<>();
 
 
     public UUID getId() {
@@ -55,7 +52,7 @@ public class User implements ResourceEntity {
         return dayOfBorn;
     }
 
-    public Set<UUID> getSubscriptions() {
+    public Set<WebService> getSubscriptions() {
         return subscriptions;
     }
 }
