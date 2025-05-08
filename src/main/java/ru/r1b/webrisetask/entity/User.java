@@ -32,7 +32,7 @@ public class User implements ResourceEntity {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate dayOfBorn;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     private Set<Subscription> subscriptions = new HashSet<>();
 
 

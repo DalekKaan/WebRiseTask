@@ -22,6 +22,8 @@ public abstract class CommonResourceController<E extends ResourceEntity> impleme
     // для ревью:
     // контроллер сгенерирован при помощи плагина для Intellij Idea "Amplicode" просто, чтобы сэкономить время
 
+    // todo: use @Transactional
+
     protected final JpaRepository<E, UUID> repository;
 
     private final ObjectMapper objectMapper;
